@@ -3,6 +3,7 @@ import { JwtModule } from '@nestjs/jwt'
 import { MongooseModule } from '@nestjs/mongoose'
 import { MulterModule } from '@nestjs/platform-express'
 import { ServeStaticModule } from '@nestjs/serve-static'
+import 'dotenv/config'
 import { diskStorage } from 'multer'
 import { join } from 'path/posix'
 import { v4 as uuidv4 } from 'uuid'
@@ -15,7 +16,6 @@ import { User, UserSchema } from './model/user.schema'
 import { Video, VideoSchema } from './model/video-schema'
 import { UserService } from './service/user.service'
 import { VideoService } from './service/video.service'
-import { secret } from './utils/constants'
 
 @Module({
     imports: [
@@ -23,8 +23,8 @@ import { secret } from './utils/constants'
         MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
         MongooseModule.forFeature([{ name: Video.name, schema: VideoSchema }]),
         JwtModule.register({
-            secret,
-            signOptions: { expiresIn: '2h' },
+            secret: process.env.SECRET,
+            signOptions: { expiresIn: process.env.TOKEN_DURATION },
         }),
         ServeStaticModule.forRoot({
             rootPath: join(__dirname, '..', 'public'),
