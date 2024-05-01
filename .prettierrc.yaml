@@ -2,19 +2,3 @@ trailingComma: 'es5'
 tabWidth: 4
 semi: false
 singleQuote: true
-overrides:
-    - files: '*.js'
-      options:
-          semi: true
-    - files: '*.ts'
-      options:
-          semi: true
-parser: '@typescript-eslint/parser'
-plugins:
-    - '@typescript-eslint'
-extends:
-    - 'eslint:recommended'
-    - 'plugin:@typescript-eslint/recommended'
-rules:
-    '@typescript-eslint/no-extra-semi':
-        - 'error'
