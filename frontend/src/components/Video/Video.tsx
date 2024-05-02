@@ -7,13 +7,14 @@ import Typography from '@mui/material/Typography'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Video } from '../../types'
 
 export default function VideoList(props: any) {
     const { setIsLoggedIn } = props
     const { id } = useParams()
     const navigate = useNavigate()
     const [videoId] = useState(id)
-    const [videoInfo, setVideoInfo] = useState([])
+    const [videoInfo, setVideoInfo] = useState<Video | null>(null)
 
     useEffect(() => {
         async function fetchData() {
@@ -32,6 +33,7 @@ export default function VideoList(props: any) {
         }
         fetchData()
     }, [videoId, navigate, setIsLoggedIn])
+    if (!videoInfo) return null
     return (
         <Container>
             <Grid item xs={12} md={12} marginTop={2}>
@@ -51,7 +53,7 @@ export default function VideoList(props: any) {
             <Grid container spacing={2} marginTop={2}>
                 <Grid item xs={12} md={6}>
                     <Typography variant="subtitle1" color="primary">
-                        Created by:{videoInfo.createdBy?.fullname}
+                        Created by:{videoInfo.createdBy.fullname}
                     </Typography>
                 </Grid>
                 <Grid item xs={12} md={6}>

@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Video } from '../../types'
 
 export default function VideoList(props: any) {
     const { setIsLoggedIn } = props
@@ -33,15 +34,15 @@ export default function VideoList(props: any) {
     return (
         <Container>
             <Grid container spacing={2} marginTop={2}>
-                {videos.map((video) => {
+                {videos.map((video: Video) => {
                     return (
-                        <Grid item xs={12} md={4} key={video._id}>
+                        <Grid item xs={12} md={4} key={video.id}>
                             <CardActionArea component="a" href="#">
                                 <Card sx={{ display: 'flex' }}>
                                     <CardContent sx={{ flex: 1 }}>
                                         <Typography component="h2" variant="h5">
                                             <Link
-                                                to={`/video/${video._id}`}
+                                                to={`/video/${video.id}`}
                                                 style={{
                                                     textDecoration: 'none',
                                                     color: 'black',
