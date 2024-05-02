@@ -23,7 +23,31 @@ The main objective of this project is to create a video streaming platform where
 
 To get started with this project, follow these steps:
 
-1. **Clone the repository**:
+1.  **Clone the repository**:
     ```bash
     git clone https://github.com/anael182/VideoStreamApp.git
+    ```
+2.  **Install libraries**:
+    ```bash
+    #Backend lib
+    cd backend
+    npm install
+    #Back to root project folder
+    cd ..
+    #Frontend lib
+    cd frontend
+    npm install
+    ```
+3.  **Start backend and frontend**:
+
+    ```bash
+    #Backend start
+    cd backend
+    npm run start:dev
+    ```
+
+    ```bash
+    #frontend start
+    cd frontend
+    npm run dev
     ```
