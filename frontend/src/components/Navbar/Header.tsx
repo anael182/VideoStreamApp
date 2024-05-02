@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography'
 import { alpha, styled } from '@mui/material/styles'
 import axios from 'axios'
 import { useState } from 'react'
+import LogoutButton from './LogoutButton'
 
 const style = {
     position: 'absolute',
@@ -55,7 +56,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }))
 
-export default function SearchAppBar({ isLoggedIn }) {
+export default function SearchAppBar(props: any) {
+    const { isLoggedIn, setLoggedIn } = props
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -109,6 +111,10 @@ export default function SearchAppBar({ isLoggedIn }) {
                                 >
                                     Add New
                                 </Button>
+                                <LogoutButton
+                                    isLoggedIn={isLoggedIn}
+                                    setLoggedIn={setLoggedIn}
+                                />
                                 <Modal
                                     open={open}
                                     onClose={handleClose}
