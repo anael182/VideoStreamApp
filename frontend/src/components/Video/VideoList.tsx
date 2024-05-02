@@ -10,7 +10,11 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { Video } from "../../types"
 
-export default function VideoList(props: any) {
+interface VideoListProps {
+  setIsLoggedIn: (isLoggedIn: boolean) => void
+}
+
+export default function VideoList(props: VideoListProps) {
   const { setIsLoggedIn } = props
   const [videos, setVideos] = useState([])
   const navigate = useNavigate()
@@ -34,11 +38,11 @@ export default function VideoList(props: any) {
   return (
     <Container>
       <Grid container spacing={2} marginTop={2}>
-        {videos.map((video: Video) => {
+        {videos.map((video: Video, index) => {
           return (
             <Grid item xs={12} md={4} key={video.id}>
               <CardActionArea component="a" href="#">
-                <Card sx={{ display: "flex" }}>
+                <Card key={index} sx={{ display: "flex" }}>
                   <CardContent sx={{ flex: 1 }}>
                     <Typography component="h2" variant="h5">
                       <Link
@@ -59,13 +63,10 @@ export default function VideoList(props: any) {
                     component="img"
                     sx={{
                       width: 160,
-                      display: {
-                        xs: "none",
-                        sm: "block",
-                      },
+                      height: 200,
                     }}
-                    image={`/${video.coverImage}`}
-                    alt="alt"
+                    image={`${video.coverImage}`}
+                    alt={`Image du film: ${video.title}`}
                   />
                 </Card>
               </CardActionArea>

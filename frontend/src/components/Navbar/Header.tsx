@@ -12,6 +12,11 @@ import axios from "axios"
 import { FormEvent, useState } from "react"
 import LogoutButton from "./LogoutButton"
 
+interface SearchAppBarProps {
+  isLoggedIn: boolean
+  setIsLoggedIn: (isLoggedIn: boolean) => void
+}
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -55,11 +60,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }))
-
-interface SearchAppBarProps {
-  isLoggedIn: boolean
-  setIsLoggedIn: (isLoggedIn: boolean) => void
-}
 
 export default function SearchAppBar(props: SearchAppBarProps) {
   const { isLoggedIn, setIsLoggedIn } = props

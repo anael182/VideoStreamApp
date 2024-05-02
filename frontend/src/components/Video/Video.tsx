@@ -9,11 +9,11 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { Video } from "../../types"
 
-interface VideoListProps {
+interface VideoProps {
   setIsLoggedIn: (isLoggedIn: boolean) => void
 }
 
-export default function VideoList(props: VideoListProps) {
+export default function VideoList(props: VideoProps) {
   const { setIsLoggedIn } = props
   const { id } = useParams()
   const navigate = useNavigate()
