@@ -44,3 +44,10 @@ To get started with this project, follow these steps:
     #From root directory
     npm start
     ```
+
+    ```bash
+    #You could easily start backend and frontend separatly using:
+
+    npm run start:backend
+    npm run start:frontend
+    ```
