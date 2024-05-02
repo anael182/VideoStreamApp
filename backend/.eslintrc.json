@@ -1,38 +1,38 @@
 {
-    "env": {
-        "es2021": true,
-        "node": true
-    },
-    "extends": [
-        "airbnb",
-        "airbnb-typescript",
-        "airbnb/hooks",
-        "prettier",
-        "plugin:cypress/recommended"
-    ],
-    "plugins": ["prettier"],
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module",
-        "extraFileExtensions": [".json"],
-        "project": "./tsconfig.base.json"
-    },
-    "rules": {
-        "prettier/prettier": "error",
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-props-no-spreading": "off",
-        "no-restricted-exports": "off",
-        "no-param-reassign": "off",
-        "@typescript-eslint/no-use-before-define": "off",
-        "react/destructuring-assignment": "off",
-        "react/require-default-props": "off",
-        "import/prefer-default-export": "off",
-        "react/default-props-match-prop-types": "off",
-        "import/no-extraneous-dependencies": "off",
-        "react/function-component-definition": "off",
-        "import/no-unresolved": "off",
-        "no-underscore-dangle": "off",
-        "no-console": "off",
-        "no-restricted-syntax": "off"
-    }
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "prettier",
+    "plugin:cypress/recommended"
+  ],
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "extraFileExtensions": [".json"],
+    "project": "./tsconfig.base.json"
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-restricted-exports": "off",
+    "no-param-reassign": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "react/destructuring-assignment": "off",
+    "react/require-default-props": "off",
+    "import/prefer-default-export": "off",
+    "react/default-props-match-prop-types": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/function-component-definition": "off",
+    "import/no-unresolved": "off",
+    "no-underscore-dangle": "off",
+    "no-console": "off",
+    "no-restricted-syntax": "off"
+  }
 }

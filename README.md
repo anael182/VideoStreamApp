@@ -6,18 +6,18 @@ Welcome to our video streaming platform project! This project is designed to dem
 
 This project integrates several technologies:
 
--   **NestJS**: A progressive Node.js framework for building efficient and scalable server-side applications.
--   **React**: A JavaScript library for building user interfaces, particularly single-page applications where you need fast, interactive user experiences.
--   **Keycloak**: An open-source Identity and Access Management solution aimed at modern applications and services.
--   **Docker**: A set of platform-as-a-service products that use OS-level virtualization to deliver software in packages called containers.
+- **NestJS**: A progressive Node.js framework for building efficient and scalable server-side applications.
+- **React**: A JavaScript library for building user interfaces, particularly single-page applications where you need fast, interactive user experiences.
+- **Keycloak**: An open-source Identity and Access Management solution aimed at modern applications and services.
+- **Docker**: A set of platform-as-a-service products that use OS-level virtualization to deliver software in packages called containers.
 
 ## Project Goals
 
 The main objective of this project is to create a video streaming platform where users can:
 
--   Stream videos efficiently and securely.
--   Manage access and user authentication using Keycloak.
--   Utilize Docker for easy deployment and scaling.
+- Stream videos efficiently and securely.
+- Manage access and user authentication using Keycloak.
+- Utilize Docker for easy deployment and scaling.
 
 ## Getting Started
 
