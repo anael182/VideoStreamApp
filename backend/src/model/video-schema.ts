@@ -11,8 +11,6 @@ export class Video {
     video: string
     @Prop()
     coverImage: string
-    @Prop()
-    url: string
     @Prop({ default: Date.now() })
     uploadDate: Date
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
