@@ -44,7 +44,7 @@ function Copyright(props: SignInProps) {
 const defaultTheme = createTheme()
 
 export default function SignIn(props: any) {
-    const { isLoggedIn, setIsLoggedIn } = props
+    const { setIsLoggedIn } = props
     const navigate = useNavigate()
     const [errrorMessage, setErrorMessage] = useState('')
 
@@ -130,7 +130,7 @@ export default function SignIn(props: any) {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link href="/signup" variant="body2">
                                     {"Don't have an account? Sign Up"}
                                 </Link>
                             </Grid>

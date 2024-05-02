@@ -12,7 +12,7 @@ import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import axios from 'axios'
 
-function Copyright(props) {
+function Copyright(props: any) {
     return (
         <Typography
             variant="body2"
@@ -21,8 +21,11 @@ function Copyright(props) {
             {...props}
         >
             {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
+            <Link
+                color="inherit"
+                href="https://github.com/anael182/VideoStreamApp"
+            >
+                StreamApp
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -33,7 +36,6 @@ function Copyright(props) {
 const theme = createTheme()
 
 export default function SignUp(props: any) {
-    const { isLoggedIn, setIsLoggedIn } = props
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         const data = new FormData(event.currentTarget)

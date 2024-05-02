@@ -8,7 +8,8 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-export default function VideoList({ setLoggedIn }) {
+export default function VideoList(props: any) {
+    const { setLoggedIn } = props
     const { id } = useParams()
     const navigate = useNavigate()
     const [videoId] = useState(id)
