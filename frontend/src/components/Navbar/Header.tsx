@@ -57,7 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }))
 
 export default function SearchAppBar(props: any) {
-    const { isLoggedIn, setLoggedIn } = props
+    const { isLoggedIn, setIsLoggedIn } = props
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
@@ -113,7 +113,7 @@ export default function SearchAppBar(props: any) {
                                 </Button>
                                 <LogoutButton
                                     isLoggedIn={isLoggedIn}
-                                    setLoggedIn={setLoggedIn}
+                                    setIsLoggedIn={setIsLoggedIn}
                                 />
                                 <Modal
                                     open={open}

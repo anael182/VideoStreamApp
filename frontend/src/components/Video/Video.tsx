@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 export default function VideoList(props: any) {
-    const { setLoggedIn } = props
+    const { setIsLoggedIn } = props
     const { id } = useParams()
     const navigate = useNavigate()
     const [videoId] = useState(id)
@@ -26,12 +26,12 @@ export default function VideoList(props: any) {
                 })
                 setVideoInfo(data)
             } catch {
-                setLoggedIn(false)
+                setIsLoggedIn(false)
                 navigate('/')
             }
         }
         fetchData()
-    }, [videoId, navigate, setLoggedIn])
+    }, [videoId, navigate, setIsLoggedIn])
     return (
         <Container>
             <Grid item xs={12} md={12} marginTop={2}>

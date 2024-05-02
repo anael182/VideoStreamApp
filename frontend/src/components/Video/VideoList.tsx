@@ -9,7 +9,8 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-export default function VideoList({ setLoggedIn }) {
+export default function VideoList(props: any) {
+    const { setIsLoggedIn } = props
     const [videos, setVideos] = useState([])
     const navigate = useNavigate()
     useEffect(() => {
@@ -23,12 +24,12 @@ export default function VideoList({ setLoggedIn }) {
                 })
                 setVideos(data)
             } catch {
-                setLoggedIn(false)
+                setIsLoggedIn(false)
                 navigate('/')
             }
         }
         fetchData()
-    }, [navigate, setLoggedIn])
+    }, [navigate, setIsLoggedIn])
     return (
         <Container>
             <Grid container spacing={2} marginTop={2}>

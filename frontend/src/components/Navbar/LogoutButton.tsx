@@ -3,11 +3,11 @@ import IconButton from '@mui/material/IconButton'
 import { useNavigate } from 'react-router-dom'
 
 export default function LogoutButton(props: amy) {
-    const { isLoggedIn, setLoggedIn } = props
+    const { isLoggedIn, setIsLoggedIn } = props
     const navigate = useNavigate()
 
     const handleLogout = () => {
-        setLoggedIn(false)
+        setIsLoggedIn(false)
         navigate('/')
     }
     if (!isLoggedIn) return null

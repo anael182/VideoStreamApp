@@ -6,19 +6,19 @@ import Video from './Video/Video'
 import VideoList from './Video/VideoList'
 
 export default function Index(props: any) {
-    const { isLoggedIn, setLoggedIn } = props
+    const { isLoggedIn, setIsLoggedIn } = props
     return (
         <BrowserRouter>
-            <Header isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
             {isLoggedIn ? (
                 <Routes>
                     <Route
                         path="/video"
-                        element={<VideoList setLoggedIn={setLoggedIn} />}
+                        element={<VideoList setIsLoggedIn={setIsLoggedIn} />}
                     ></Route>
                     <Route
                         path="/video/:id"
-                        element={<Video setLoggedIn={setLoggedIn} />}
+                        element={<Video setIsLoggedIn={setIsLoggedIn} />}
                     ></Route>
                 </Routes>
             ) : (
@@ -27,14 +27,14 @@ export default function Index(props: any) {
                         path="/"
                         element={
                             <SignIn
-                                setIsLoggedIn={setLoggedIn}
+                                setIsLoggedIn={setIsLoggedIn}
                                 isLoggedIn={isLoggedIn}
                             />
                         }
                     ></Route>
                     <Route
                         path="/signup"
-                        element={<SignUp setIsLoggedIn={setLoggedIn} />}
+                        element={<SignUp setIsLoggedIn={setIsLoggedIn} />}
                     ></Route>
                 </Routes>
             )}
