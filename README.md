@@ -41,13 +41,6 @@ To get started with this project, follow these steps:
 3.  **Start backend and frontend**:
 
     ```bash
-    #Backend start
-    cd backend
-    npm run start:dev
-    ```
-
-    ```bash
-    #frontend start
-    cd frontend
-    npm run dev
+    #From root directory
+    npm start
     ```
