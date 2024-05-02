@@ -51,3 +51,7 @@ To get started with this project, follow these steps:
     npm run start:backend
     npm run start:frontend
     ```
+
+4.  **❤️ Application is available on your machine ❤️**
+
+The application should be running at this adress : http://localhost:5173/
