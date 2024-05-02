@@ -26,10 +26,12 @@ export class UserService {
         const foundUser = await this.userModel
             .findOne({ email: user.email })
             .exec()
+        console.log(foundUser)
         if (foundUser) {
             const { password } = foundUser
-            if (bcrypt.compare(user.password, password)) {
+            if (await bcrypt.compare(user.password, password)) {
                 const payload = { email: user.email }
+                console.log(jwt.sign(payload))
                 return {
                     token: jwt.sign(payload),
                 }
@@ -44,7 +46,7 @@ export class UserService {
             HttpStatus.UNAUTHORIZED
         )
     }
-    async getOne(email): Promise<User> {
+    async getOne(email: string): Promise<User | null> {
         return await this.userModel.findOne({ email }).exec()
     }
 }

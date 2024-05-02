@@ -12,6 +12,9 @@ import { createTheme, Theme, ThemeProvider } from '@mui/material/styles'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import { SxProps } from '@mui/system'
+import axios from 'axios'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface SignInProps {
     sx?: SxProps<Theme>
@@ -40,14 +43,26 @@ function Copyright(props: SignInProps) {
 
 const defaultTheme = createTheme()
 
-export default function SignIn() {
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+export default function SignIn(props: any) {
+    const { isLoggedIn, setIsLoggedIn } = props
+    const navigate = useNavigate()
+    const [errrorMessage, setErrorMessage] = useState('')
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        const data = new FormData(event.currentTarget)
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        })
+        const formData = new FormData(event.currentTarget)
+        const form = {
+            email: formData.get('email'),
+            password: formData.get('password'),
+        }
+        const { data } = await axios.post('/api/user/signin', form)
+        if (data.status === parseInt('401')) {
+            setErrorMessage(data.response)
+        } else {
+            localStorage.setItem('token', data.token)
+            setIsLoggedIn(true)
+            navigate('/video')
+        }
     }
 
     return (

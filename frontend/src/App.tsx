@@ -1,5 +1,8 @@
-import SignIn from './components/SignIn'
+import { useState } from 'react'
+import Index from './components/Index'
 
 export default function App() {
-    return <SignIn />
+    const [isLoggedIn, setLoggedIn] = useState(false)
+
+    return <Index isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
 }

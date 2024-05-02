@@ -46,7 +46,7 @@ export class AppModule {
     configure(consumer: MiddlewareConsumer) {
         consumer
             .apply(isAuthenticated)
-            .exclude({ path: 'api/v1/video/:id', method: RequestMethod.GET })
+            .exclude({ path: 'api/video/:id', method: RequestMethod.GET })
             .forRoutes(VideoController)
     }
 }
