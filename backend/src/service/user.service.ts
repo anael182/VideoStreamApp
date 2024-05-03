@@ -30,15 +30,9 @@ export class UserService {
           token: jwt.sign(payload),
         }
       }
-      return new HttpException(
-        "Incorrect username or password",
-        HttpStatus.UNAUTHORIZED
-      )
+      return new HttpException("Incorrect password", HttpStatus.UNAUTHORIZED)
     }
-    return new HttpException(
-      "Incorrect username or password",
-      HttpStatus.UNAUTHORIZED
-    )
+    return new HttpException("Incorrect username", HttpStatus.UNAUTHORIZED)
   }
   async getOne(email: string): Promise<User | null> {
     return await this.userModel.findOne({ email }).exec()
