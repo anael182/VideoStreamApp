@@ -96,7 +96,7 @@ export default function SearchAppBar(props: SearchAppBarProps) {
               display: { xs: "none", sm: "block" },
             }}
           >
-            Streamly
+            Stream Platform
           </Typography>
           {isLoggedIn && (
             <>

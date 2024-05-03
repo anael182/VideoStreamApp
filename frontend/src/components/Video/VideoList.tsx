@@ -22,7 +22,7 @@ export default function VideoList(props: VideoListProps) {
     async function fetchData() {
       try {
         const token = localStorage.getItem("token")
-        const { data } = await axios.get("/api/video", {
+        const { data } = await axios.get(`api/video`, {
           headers: {
             Authorization: "Bearer " + token,
           },
@@ -33,42 +33,37 @@ export default function VideoList(props: VideoListProps) {
         navigate("/")
       }
     }
+
     fetchData()
   }, [navigate, setIsLoggedIn])
   return (
     <Container>
       <Grid container spacing={2} marginTop={2}>
-        {videos.map((video: Video, index) => {
+        {videos.map((video: Video) => {
           return (
-            <Grid item xs={12} md={4} key={video.id}>
-              <CardActionArea component="a" href="#">
-                <Card key={index} sx={{ display: "flex" }}>
-                  <CardContent sx={{ flex: 1 }}>
-                    <Typography component="h2" variant="h5">
-                      <Link
-                        to={`/video/${video.id}`}
-                        style={{
-                          textDecoration: "none",
-                          color: "black",
-                        }}
-                      >
+            <Grid item xs={12} md={4} key={video._id}>
+              <CardActionArea component="div">
+                <Link
+                  to={`/video/${video._id}`}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <Card sx={{ display: "flex", minHeight: 250 }}>
+                    <CardContent sx={{ flex: 1 }}>
+                      <Typography component="h2" variant="h5">
                         {video.title}
-                      </Link>
-                    </Typography>
-                    <Typography variant="subtitle1" color="text.secondary">
-                      {video.uploadDate}
-                    </Typography>
-                  </CardContent>
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      width: 160,
-                      height: 200,
-                    }}
-                    image={`${video.coverImage}`}
-                    alt={`Image du film: ${video.title}`}
-                  />
-                </Card>
+                      </Typography>
+                      <Typography variant="subtitle1" color="text.secondary">
+                        Uploaded at {video.uploadDate}
+                      </Typography>
+                    </CardContent>
+                    <CardMedia
+                      component="img"
+                      sx={{ width: 160, display: { xs: "none", sm: "block" } }}
+                      image={`api/${video.coverImage}`}
+                      alt="alt"
+                    />
+                  </Card>
+                </Link>
               </CardActionArea>
             </Grid>
           )

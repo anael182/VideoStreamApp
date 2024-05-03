@@ -1,5 +1,5 @@
 export interface Video {
-  id: number
+  _id: number
   title: string
   video: string
   coverImage: string

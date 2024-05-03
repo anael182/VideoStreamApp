@@ -7,9 +7,7 @@ import "dotenv/config"
 import { diskStorage } from "multer"
 import { join } from "path/posix"
 import { v4 as uuidv4 } from "uuid"
-import { AppController } from "./app.controller"
 import { isAuthenticated } from "./app.middleware"
-import { AppService } from "./app.service"
 import { UserController } from "./controller/user.controller"
 import { VideoController } from "./controller/video.controller"
 import { User, UserSchema } from "./model/user.schema"
@@ -39,14 +37,14 @@ import { VideoService } from "./service/video.service"
       }),
     }),
   ],
-  controllers: [AppController, VideoController, UserController],
-  providers: [AppService, VideoService, UserService],
+  controllers: [VideoController, UserController],
+  providers: [VideoService, UserService],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(isAuthenticated)
-      .exclude({ path: "api/video/:id", method: RequestMethod.GET })
+      .exclude({ path: "/video/:id", method: RequestMethod.GET })
       .forRoutes(VideoController)
   }
 }
