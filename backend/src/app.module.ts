@@ -17,7 +17,7 @@ import { VideoService } from "./service/video.service"
 
 @Module({
   imports: [
-    MongooseModule.forRoot("mongodb://localhost:27017/Stream"),
+    MongooseModule.forRoot(`${process.env.DATABASE_URL}`),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     MongooseModule.forFeature([{ name: Video.name, schema: VideoSchema }]),
     JwtModule.register({
