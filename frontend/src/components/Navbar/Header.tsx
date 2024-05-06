@@ -106,15 +106,15 @@ export default function SearchAppBar(props: SearchAppBarProps) {
                   inputProps={{ "aria-label": "search" }}
                 />
               </Search>
-              <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
+              <Button sx={{ mr: 2 }} variant="contained" onClick={handleOpen}>
+                Add New
+              </Button>
+              <Avatar sx={{ bgcolor: "secondary.main", ml: 2 }} />
+              <LogoutButton
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+              />
               <div>
-                <Button variant="contained" onClick={handleOpen}>
-                  Add New
-                </Button>
-                <LogoutButton
-                  isLoggedIn={isLoggedIn}
-                  setIsLoggedIn={setIsLoggedIn}
-                />
                 <Modal
                   open={open}
                   onClose={handleClose}
