@@ -23,35 +23,41 @@ The main objective of this project is to create a video streaming platform where
 
 To get started with this project, follow these steps:
 
-1.  **Clone the repository**:
-    ```bash
-    git clone https://github.com/anael182/VideoStreamApp.git
-    ```
-2.  **Install libraries**:
-    ```bash
-    #Backend lib
-    cd backend
-    npm install
-    #Back to root project folder
-    cd ..
-    #Frontend lib
-    cd frontend
-    npm install
-    ```
-3.  **Start backend and frontend**:
+First of all, you need to have a [MongoDB](https://www.mongodb.com/) service exposed on port 27017.
 
-    ```bash
-    #From root directory
-    npm start
-    ```
+1. **Clone the repository**:
 
-    ```bash
-    #You could easily start backend and frontend separatly using:
+   ```bash
+   git clone https://github.com/anael182/VideoStreamApp.git
+   ```
 
-    npm run start:backend
-    npm run start:frontend
-    ```
+2. **Install libraries**:
 
-4.  **❤️ Application is available on your machine ❤️**
+   ```bash
+   #Backend lib
+   cd backend
+   npm install
+   #Back to root project folder
+   cd ..
+   #Frontend lib
+   cd frontend
+   npm install
+   ```
 
-The application should be running at this adress : http://localhost:5173/
+3. **Start backend and frontend**:
+
+   ```bash
+   #From root directory
+   npm start
+   ```
+
+   ```bash
+   #You could easily start backend and frontend separatly using:
+
+   npm run start:backend
+   npm run start:frontend
+   ```
+
+4. **❤️ Application is available on your machine ❤️**
+
+The application should be running at this adress : <http://localhost:5173/>
