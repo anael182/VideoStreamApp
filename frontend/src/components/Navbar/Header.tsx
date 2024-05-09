@@ -63,19 +63,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar(props: SearchAppBarProps) {
   const { isLoggedIn, setIsLoggedIn } = props
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState<boolean>(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
-  const [video, setVideo] = useState("")
-  const [cover, setCover] = useState("")
-  const [title, setTitle] = useState("")
+  const [video, setVideo] = useState<File | null>(null)
+  const [cover, setCover] = useState<File | null>(null)
+  const [title, setTitle] = useState<string>("")
 
   const submitForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = new FormData()
     formData.append("title", title)
-    formData.append("video", video)
-    formData.append("cover", cover)
+    formData.append("video", video ?? "")
+    formData.append("cover", cover ?? "")
     const token = localStorage.getItem("token")
     await axios.post("/api/video", formData, {
       headers: {
@@ -152,7 +152,13 @@ export default function SearchAppBar(props: SearchAppBarProps) {
                           name="video"
                           autoFocus
                           type="file"
-                          onChange={(e) => setVideo(e.target.files[0])}
+                          onChange={(
+                            e: React.ChangeEvent<HTMLInputElement>
+                          ) => {
+                            if (e.target.files && e.target.files.length > 0) {
+                              setVideo(e.target.files[0])
+                            }
+                          }}
                         />
                         <label>Select Cover Image:</label>
                         <TextField
@@ -163,7 +169,13 @@ export default function SearchAppBar(props: SearchAppBarProps) {
                           name="coverImage"
                           type="file"
                           id="coverImage"
-                          onChange={(e) => setCover(e.target.files[0])}
+                          onChange={(
+                            e: React.ChangeEvent<HTMLInputElement>
+                          ) => {
+                            if (e.target.files && e.target.files.length > 0) {
+                              setCover(e.target.files[0])
+                            }
+                          }}
                         />
                         <Button
                           type="submit"
